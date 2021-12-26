@@ -1,0 +1,165 @@
+  
+<!doctype html><html class="a-no-js" data-19ax5a9jf="dingo">
+ <head>
+  <meta charset="utf-8"/>
+  <title dir="ltr">Souq Registration</title>
+    <link rel="stylesheet" href="https://images-eu.ssl-images-amazon.com/images/I/71HGYcl3KDL.css?AUIClients/SouqWhiteMobileSkin#not-trident" />
+    <link rel="stylesheet" href="https://images-eu.ssl-images-amazon.com/images/I/01SdjaY0ZsL._RC|31jdWD+JB+L.css,41DBI6BbFkL.css_.css?AUIClients/AuthenticationPortalAssets" />
+    <link rel="stylesheet" href="https://images-eu.ssl-images-amazon.com/images/I/11qeL1AgUGL.css?AUIClients/CVFAssets" />
+</head>
+  <body class="auth-souq ap-locale-en_QS a-aui_72554-c a-aui_button_aria_label_markup_348458-t1 a-aui_csa_templates_buildin_ww_exp_337518-c a-aui_csa_templates_buildin_ww_launch_337517-c a-aui_csa_templates_declarative_ww_exp_337521-c a-aui_csa_templates_declarative_ww_launch_337520-c a-aui_dynamic_img_a11y_markup_345061-t1 a-aui_mm_desktop_exp_291916-c a-aui_mm_desktop_launch_291918-c a-aui_mm_desktop_targeted_exp_291928-c a-aui_mm_desktop_targeted_launch_291922-c a-aui_pci_risk_banner_210084-c a-aui_preload_261698-c a-aui_rel_noreferrer_noopener_309527-c a-aui_template_weblab_cache_333406-c a-aui_tnr_v2_180836-c">
+   
+    <div *ngIf="showError" class="alert alert-danger" role="alert">
+      {{errorMessage}}
+   
+    </div>
+
+  <div *ngIf="showSuccess" class="alert alert-success" role="alert">
+      {{successMessage}}
+   
+  </div>
+  <div id="a-page"><script type="a-state" data-a-state="{&quot;key&quot;:&quot;a-wlab-states&quot;}">{"AUI_BUTTON_ARIA_LABEL_MARKUP_348458":"T1","AUI_MM_DESKTOP_LAUNCH_291918":"C","AUI_CSA_TEMPLATES_BUILDIN_WW_EXP_337518":"C","AUI_DYNAMIC_IMG_A11Y_MARKUP_345061":"T1","AUI_CSA_TEMPLATES_DECLARATIVE_WW_LAUNCH_337520":"C","AUI_CSA_TEMPLATES_BUILDIN_WW_LAUNCH_337517":"C","AUI_CSA_TEMPLATES_DECLARATIVE_WW_EXP_337521":"C"}</script>
+        <div class="a-section a-padding-medium auth-workflow">
+          <div class="a-section a-spacing-none auth-navbar"> 
+        <div class="a-section a-spacing-medium a-text-center">
+
+              <a class="a-link-nav-icon" tabindex="-1" href="https://www.souq.com">
+                <img src="https://images-na.ssl-images-amazon.com/images/G/42/souq/images/souq-english115x48._CB479879242_.svg" alt="Souq"/>
+              </a>
+       </div>
+        </div>
+
+        <div id="authportal-center-section" class="a-section">
+                <div id="authportal-main-section" class="a-section">
+         <div class="a-section a-spacing-base auth-pagelet-container">
+          <div id="auth-cookie-warning-message" class="a-box a-alert a-alert-warning">
+            <div class="a-box-inner a-alert-container"><h4 class="a-alert-heading">Please Enable Cookies to Continue</h4><i class="a-icon a-icon-alert"></i><div class="a-alert-content">
+            <p>
+              <a class="a-link-normal" href="/gp/help/customer/display.html/ref=ap_cookie_error_help?">
+                
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>  
+    </div>
+    <div class="a-section auth-pagelet-container">
+    <!-- show a warning modal dialog when the third party account is connected with Amazon -->
+    <div class="a-section">
+      <form id="ap_register_form"  [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="registerUser(registerForm.value)"  name="register" method="post" novalidate action="https://www.amazon.co.uk/ap/register" data-enable-mobile-account-js="false" data-post-verification-action="https://www.amazon.co.uk/ap/register" class="a-spacing-none"> 
+        <div class="a-box a-spacing-extra-large">
+        <div class="a-box-inner">
+          <h1 class="a-spacing-small">
+            Create account
+          </h1>
+    <div class="a-row a-spacing-base">
+     <label for="ap_customer_name" class="a-form-label">
+          Your name
+        </label>
+        <input type="text" formControlName="userName" maxlength="50" id="ap_customer_name" autocomplete="off" name="customerName" tabindex="1" class="a-input-text a-span12 auth-autofocus auth-required-field auth-contact-verification-request-info"/>
+      <div id="auth-customerName-missing-alert" class="a-box a-alert-inline a-alert-inline-info auth-inlined-information-message a-spacing-top-mini" aria-live="assertive" role="alert">
+        <div class="a-box-inner a-alert-container">
+          <div class="a-alert-content"></div>
+        <em *ngIf="validateControl('userName') && hasError('userName', 'required')"><i class="a-icon a-icon-alert"></i>User Name is required</em>
+      <!--<div class="a-box-inner a-alert-container"><i class="a-icon a-icon-alert"></i><div class="a-alert-content">-->
+   </div>
+  </div>
+ </div>
+
+  <div class="auth-require-fields-match-group"> 
+    <div class="a-row a-spacing-base">
+        <label for="ap_email" class="a-form-label">
+                Email
+        </label>
+        <input type="email" maxlength="64" formControlName="Email"  id="ap_email" name="email" tabindex="3" class="a-input-text a-span12 auth-required-field auth-require-fields-match auth-require-reverify-on-change auth-contact-verification-request-info"/>
+       <div id="auth-email-missing-alert" class="a-box a-alert-inline a-alert-inline-info auth-inlined-information-message a-spacing-top-mini" aria-live="assertive" role="alert">
+        <div class="a-box-inner a-alert-container">
+            <div class="a-alert-content">
+             <em *ngIf="validateControl('Email') && hasError('Email','required')">
+              <i class="a-icon a-icon-alert"></i>
+              Email is required ,Please correct and try again.and must have @ . 
+            </em>
+             </div>
+         </div>
+      </div>
+  </div>
+</div>
+
+
+ <div class="auth-require-fields-match-group">
+   <div class="a-row a-spacing-base">
+        <label for="ap_password" class="a-form-label">
+          Password
+        </label>
+         <input type="password" formControlName="PasswordHash" maxlength="1024" id="ap_password" autocomplete="off" placeholder="At least 6 characters" name="password" tabindex="5" class="a-input-text a-form-normal a-span12 auth-required-field auth-require-fields-match auth-require-password-validation"/>
+        <div class="a-box a-alert-inline a-alert-inline-info auth-inlined-information-message a-spacing-top-mini">
+          <div class="a-box-inner a-alert-container">
+            <i class="a-icon a-icon-alert"></i>
+          <div class="a-alert-content">
+            <i class="a-icon a-icon-alert"></i>
+             <em *ngIf="validateControl('PasswordHash') && hasError('PasswordHash','required')">Password is required and Passwords must be at least 6 characters at least one upper letter , one lower letter and alphnumber .</em>  
+        </div>
+        </div>
+      </div>
+    </div>
+    </div>
+<div class="a-row a-spacing-base">
+       <label for="ap_password_check" class="a-form-label">
+          Re-enter password
+        </label>
+          <input type="password" formControlName="ConfirmPassword" maxlength="1024" id="ap_password_check" autocomplete="off" name="passwordCheck" tabindex="6" class="a-input-text a-form-normal a-span12 auth-required-field auth-require-fields-match"/>
+          <div id="auth-passwordCheck-missing-alert" class="a-box a-alert-inline a-alert-inline-error auth-inlined-error-message a-spacing-top-mini" aria-live="assertive" role="alert">
+            <div class="a-box-inner a-alert-container">
+            <div class="a-alert-content">
+              <i class="a-icon a-icon-alert"></i>
+          <small class="text-danger" *ngIf="registerForm.errors?.misMatch">Password and confirm password not match</small>
+         Type your password again
+       </div>
+       </div>
+    </div>
+    <!--<div id="auth-password-mismatch-alert" class="a-box a-alert-inline a-alert-inline-error auth-inlined-error-message a-spacing-top-mini" aria-live="assertive" role="alert">
+      <div class="a-box-inner a-alert-container">
+        <i class="a-icon a-icon-alert">
+        </i>
+      <div class="a-alert-content">
+      Passwords must match
+    </div>
+</div>
+</div>-->
+</div>   
+
+ <div class="a-row a-spacing-extra-large"> 
+    <span class="a-button a-button-normal a-button-span12 a-button-primary">
+       <span class="a-button-inner">
+         <input id="continue" tabindex="12" class="a-button-input" [disabled]="!registerForm.valid" type="submit"/>
+          <span class="a-button-text" aria-hidden="true">
+              Create new Account
+           </span></span></span>        
+    <div id="legalTextRow" class="a-row a-spacing-top-medium a-size-small">
+      By creating an account, you agree to our Conditions of Use and Privacy Policy.
+    </div>   
+  </div>
+            <div class="a-divider a-divider-section">
+              <div class="a-divider-inner">
+              </div></div>
+            
+            <div class="a-row">
+              Already have an account?
+              <a class="nav-link" routerLink="/Login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Log in</a>
+              <!--<a class="a-link-emphasis" href="/ap/signin?clientContext=liraS5HITxTfhkIRiYtIbb2RSVDDap&amp;openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;marketPlaceId=ARBP9OOSHTCHU&amp;language=en_QS&amp;clientParam=eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ.Ggj7qnbuNVCkAemmA1Lfx7MoJaJTcetpnSqCtMxR-Rre1-pRy-Ac4sU1aI2kLN00d1VDiGjKY-7lzA59Jz55wdIjC90sVd_4Wo54cUN4kaL0GeTJOjM3bDgiNPW4x3Dp234NMr8tE8W3CLcNOxH_bIYquItSNL0s9KLbMYH2Y4NOdVkaZ95PIyj7ywYux3oLWZTUsSLexP3M7WPwvUiXycuNVusP_IQKZnka4riPUAJIjVncm_Rv2s9a3tPfRud2Pg9sZZPKu_bUG2AIaZsTWGErTwAo2Bz7MveJzcADgdEgjH2HtzXnMeMNtpNcli5bAkFzirFXtdhrWYzs5mTh_w.YUcA4brPnSxzIwzz._HY4FNz9HH7US3L62ZsFBK9js-aDwxpw8JUabIOAUt8VCxYBcLouB59yxsARNdEwor11d5o9_HVK72fp3i8Yab5L4huUkMiLfgQPsXNmDdJ7ZdjwGFpK_fNOutqyS9gWHZXErI43m4CbU25LPu6rOs-whiB6yM8Rt9WFcEOwvds17RDvNoyBWb9IR0E91Ewm5ABLy7DsOpSny9buJRTXhKSZU8L7CNP7xQGt1E3sGBk6wMwA-nbwRf5Z-vc5zuHdUxGSXLSyMcP3Qao2WwX2FfDC3gABp494ctzs9-6PFUPunu-j3hdYwpLcFppw6MMPg-cyDbWQsY59ICogfaBvuLyriJjE6Ch_6rtOT5bhUYJM2QLR9V96fbcY8eI9cPza8PAqCDTDA7nnVdHPBYYNpU-lBVgQgTr-sbrYxu8MGRS89DsFmySkz6LOqwynFUanmVmtd0CJuZ-7IgRwAVF3Oa5aks2NaS_eVRmH8oGMNcLGKalhg6gheebU4FehBgQQWulBLV42-yNUhiq0T9bgDreYis6HXrgmnGXC_Dz4W47aT3ZYaD5gm3IJKRINBiIYBRT2VNX8MoG7fKNuFIBPORwX-WU.3hQ1cFBjGV6ZcnnKc84A0g&amp;pageId=Souq_Auth_EG_en&amp;openid.return_to=https%3A%2F%2Fegypt.souq.com%2Feg-en%2Flogin.php%3Faction%3DhandleAmazonAuth&amp;prevRID=AFPRZE3249FJBR1KVVRT&amp;openid.assoc_handle=amzn_souq_egy&amp;openid.oa2.response_type=code&amp;openid.mode=checkid_setup&amp;openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&amp;openid.ns.oa2=http%3A%2F%2Fwww.amazon.com%2Fap%2Fext%2Foauth%2F2&amp;rmrMeStringID=ap_rememeber_me_default_message&amp;openid.oa2.scope=auth_code&amp;openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;openid.oa2.client_id=iba%3Aamzn1.application-oa2-client.f876ccb9a39f4b099ae565bb7c11b0fa&amp;openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">
+                Sign in
+              </a>-->
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+ </div>
+</div>
+ </div>
+</div>
+</body>
+</html>
+
+

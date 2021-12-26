@@ -1,0 +1,41 @@
+.col
+{
+    float: left;
+    margin-left: 30px;
+  
+}
+.main
+{
+    margin-left: 180px;
+    background-color: rgb(245, 243, 243);
+    padding: 30px;
+    width: 620px;
+    height: 230px;
+  margin-bottom: 7px;
+}
+h2
+{
+    font-weight: bold;
+    margin-left: 160px;
+}
+.hr {
+    display: block;
+    height: 0.5px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 0.5em 0;
+    padding: 0;
+}
+.cart
+{
+margin-top: 30px;
+display: flex;
+}
+.button
+{
+    margin-left: 120px;
+    margin-top: 10px;
+    width: 280px;
+    background-color: green;
+    height: 60px;
+}

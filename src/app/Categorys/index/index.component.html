@@ -1,0 +1,39 @@
+
+
+
+<div class="container" style="margin-left: 220px;justify-content: center;padding-top: 6%;">
+
+    <a routerLink="/AddCategory" class="btn btn-primary mt-3 mb-3">Add New Category</a>
+    <table id="CategoriesTable" class="table table-hover table-striped" style="border-collapse:collapse; font-size:20px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+        <thead>
+            <tr>
+                <th>Category ID</th>
+                <th>Category Name</th>
+                <th>Category  Description</th>
+                <th>Modification</th>
+               
+    
+            </tr>
+        </thead>
+        <tbody>
+    
+       
+        <tr *ngFor="let cat of categoryList">
+                <td> {{cat.id}}</td>  
+                <td> {{cat.name}}</td> 
+                <td> {{cat.description}}</td>  
+            <td>
+                        <a href="" class="btn btn-success" [routerLink]="['/CategorysUPdate/', cat.id]">Update </a>&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-danger"  (click)="deleteCategory(cat.id)"  data->Delete</button>
+   
+                    </td>
+    
+                </tr>
+    
+    
+        </tbody>
+    
+    </table>
+    
+    </div>
+

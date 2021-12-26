@@ -1,0 +1,252 @@
+<div style="display: flex; padding-top: 80px;">
+    <br><br><br><br><br><br>
+    <div>
+        <div class="small-12 large-2 columns " style="padding-top: 20px;">
+            <div class="refinementWrap show-for-large">
+                <form action="#" id="refinementForm" class="innerWrap" onkeypress="return event.keyCode != 13;">
+                    <section class="filter-group refinementTracking">
+                        <ul class="accordion refinementBlock" data-accordion data-multi-expand="true" data-track="">
+
+                            <li class="accordion-item is-active" data-accordion-item>
+                                <a href="#" class="accordion-title">Show Only</a>
+                                <div class="accordion-content" data-tab-content style="display:block">
+                                    <div class=" after">
+                                        <ul class="no-bullet clearfix content-list">
+                                            <li class="refinement"
+                                                data-refinement="Free Shipping on Fulfilled By Souq.com">
+                                                <label class="sk-clr2 sk-clr2-eff ">
+                                                    <input type="checkbox" class="valign-mid"
+                                                        data-refienment-for="show_only" name="filters[show_only][]"
+                                                        value="fbs3" data-track-target=""
+                                                        data-track-name="refinementCheckboxes"
+                                                        data-track-label-name="Free Shipping on Fulfilled By Souq.com"
+                                                        data-track-category-name="Show Only">
+                                                    <div class="filter-icon fbs"></div>
+                                                    <span class="txtcolor-gray">(<span>241</span>)</span>
+                                                    <div class="eligible-free-shipping-box"><small>(Eligible for <b>FREE
+                                                                Shipping</b>)&nbsp;<span data-tooltip
+                                                                aria-haspopup="true" class="has-tip top"
+                                                                data-disable-hover="false" tabindex="2"
+                                                                aria-describedby="x-tooltip" data-yeti-box="x-tooltip"
+                                                                data-toggle="x-tooltip" data-resize="x-tooltip"
+                                                                title="All orders of  350.00 EGP  or more on fulfilled by Souq items across any product category qualify for FREE Shipping.">[?]</span></small>
+                                                    </div>
+
+                                                </label>
+                                            </li>
+                                            <li class="refinement" data-refinement="Bundles">
+                                                <label class="sk-clr2 sk-clr2-eff bundles-refinement">
+                                                    <input type="checkbox" class="valign-mid"
+                                                        data-refienment-for="show_only" name="filters[show_only][]"
+                                                        value="has_bundles" data-track-target=""
+                                                        data-track-name="refinementCheckboxes"
+                                                        data-track-label-name="Bundles"
+                                                        data-track-category-name="Show Only">
+                                                    Bundles
+                                                    <span class="txtcolor-gray">(<span>9</span>)</span>
+
+                                                </label>
+                                            </li>
+                                        </ul>
+                                        <button
+                                            class="hide-for-large button expand tiny hollow showAllFilters sk-clr1 sk-clr1-eff sk-br-clr1 sk-br-clr1-eff"
+                                            type="button">More</button>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="accordion-item is-active" data-accordion-item>
+                                <a href="#" class="accordion-title">Category</a>
+                                <div class="accordion-content" data-tab-content style="display:block">
+                                    <div class=" after" *ngFor="let y of allCategories">
+                                        <ul class="no-bullet clearfix content-list">
+                                            <li class="refinement" data-refinement="Pasta &amp; Noodles">
+                                                <label class="sk-clr2 sk-clr2-eff ">
+                                                    <input type="checkbox" class="valign-mid"
+                                                        data-refienment-for="id_type_item"
+                                                        name="filters[id_type_item][]" value="591" data-track-target=""
+                                                        data-track-name="refinementCheckboxes"
+                                                        data-track-label-name="Pasta &amp; Noodles"
+                                                        data-track-category-name="Category" 
+                                                        (change)="filterBySubCategories($event,y.id)"
+                                                        >
+                                                    {{y.name}}
+                                                    <span class="txtcolor-gray">(<span>156</span>)</span>
+
+                                                </label>
+                                            </li>
+                                            <!--  <li class="refinement" data-refinement="Cereals &amp; Grains">
+                            <label class="sk-clr2 sk-clr2-eff ">
+                                <input type="checkbox" class="valign-mid" data-refienment-for="id_type_item" name="filters[id_type_item][]" value="570" data-track-target="" data-track-name="refinementCheckboxes" 
+                            data-track-label-name="Cereals &amp; Grains" data-track-category-name="Category">
+                                        Cereals &amp; Grains
+                                    <span class="txtcolor-gray">(<span>85</span>)</span>
+    
+                            </label>
+                            </li> -->
+                                        </ul>
+                                        <button
+                                            class="hide-for-large button expand tiny hollow showAllFilters sk-clr1 sk-clr1-eff sk-br-clr1 sk-br-clr1-eff"
+                                            type="button">More</button>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="accordion-item is-active" data-accordion-item>
+                                <a href="#" class="accordion-title">Brand</a>
+                                <div class="accordion-content" data-tab-content style="display:block">
+                                    <input type="text" class="filter" placeholder=" Brand">
+                                    <div class=" scroll collapseOnReveal after" *ngFor="let x of AllBrand">
+                                        <ul class="no-bullet clearfix content-list">
+                                            <li class="refinement" data-refinement="Star">
+                                                <label class="sk-clr2 sk-clr2-eff ">
+                                                    <input type="checkbox" class="valign-mid"
+                                                        data-refienment-for="manufacturer_en"
+                                                        name="filters[manufacturer_en][]" value="star"
+                                                        data-track-target="" data-track-name="refinementCheckboxes"
+                                                        data-track-label-name="Star" data-track-category-name="Brand">
+                                                    {{x.name}}
+                                                    <span class="txtcolor-gray">(<span>21</span>)</span>
+
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- </div> -->
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    <span>Price</span><br>
+                    <input type="number" #from style="width: 80px; height: 30px; float: left;border: black 1px;" placeholder="from"><input type="number" #to style="width: 80px; height: 30px; border: black 1px" placeholder="to">
+                    <button (click)="getProductsWithPrice(from.value,to.value)" style="margin-left: 100px;background-color: rgb(4, 104, 129);height: 20px;text-align: center;">Apply</button>
+                </form>
+            </div>
+        </div>
+
+
+        <div style="display: flex ; width: 80%; flex-wrap: wrap;">
+            <div *ngFor="let item of  allProducts ">
+                <div class="img-bucket" style="width:290px; height: 400px;margin-left: 5px;">
+
+                    <i class="fi-heart add-to-wishlist sk-clr1-eff hide"></i>
+                    <a class="img-link imgShowQuickView"
+                        href="https://egypt.souq.com/eg-en/abu-kass-indian-mazza-basmati-rice-2-kg-1163900570/u/"
+                        data-item_parent_id="94888185" data-campaign_id="13786" data-tag_id="" data-item_id="94888185"
+                        data-unit_id="1163900570" data-item_type_id="570" aria-controls="quickViewReveal"
+                        data-current_unit_id="1163900570" data-seller_name="SouqEgypt"
+                        data-title="Abu Kass Indian Mazza Basmati Rice - 2 kg" data-ean="2725235353933"
+                        data-rating="98%" data-price="89.95" data-is_ags="false" data-connections=""
+                        data-available_quantity="610" data-brand="abu kass" data-subcategory="cereals &amp; grains">
+                        <div class="discounts-box">
+
+                            <span class="discount" style="margin-left: 15px;">{{item.discount}}% off</span>
+                        </div>
+                        <img [src]="createImgPath(item.image)">
+
+                        <div class="overlay">
+
+                            <button type="button" class="button tiny sk-bg-clr1 sk-bg-clr1-eff">
+                                Quick View
+                            </button>
+                        </div>
+                    </a>
+
+
+                    <!-- <div class="columns small-8 medium-12" *ngFor="let item of  allProducts "> -->
+                    <ul class="body no-bullet">
+                        <li class="title-row">
+                            <h6 class="title">
+                                <span class="itemTitle">
+                                    <a href="https://egypt.souq.com/eg-en/abu-kass-indian-mazza-basmati-rice-2-kg-1163900570/u/"
+                                        title="Abu Kass Indian Mazza Basmati Rice - 2 kg">
+                                        {{item.description}}
+                                    </a>
+                                </span>
+                            </h6>
+                        </li>
+                        <li class="coupon-flag-row">
+                        </li>
+
+                        <li>
+                            <div class="row row-padding-15">
+                                <div class="column medium-7">
+                                    <h5 class="price">
+                                        <span class="is block sk-clr1">{{calcPriceAfterDiscount(item.price,item.discount)}}
+                                            <small class="currency-text sk-clr1">EGP</small>
+                                        </span>
+                                        <span class="was block">{{item.price}}
+                                            <small class="currency-text"> &nbsp;&nbsp;   &nbsp;&nbsp;</small>EGP
+                                        </span>
+                                        <!-- <span class="">You save 30.05
+                                                    <small class="currency-text"></small>EGP</span>
+                                                </span> -->
+                                    </h5>
+                                </div>
+
+                                <div class="column medium-5 stars-fbs">
+                                    <div class="stars-rating">
+                                        <div class="star-rating clearMargin-v-large">
+                                            <div class="stars">
+                                                <i class="star-rating-svg"><i style="width:98%"></i></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="show-for-medium-down">
+                            <div class="row row-padding-15">
+                                <div class="column small-12 mobile-bundle-flag">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="free-shipping-row">
+                            <div class="free-shipping ">
+                                Eligible for <span><b>FREE Shipping</b></span>
+                            </div>
+                            <!--  -->
+                            <div class="flag-block">
+                                <div class="flag flag-fbs"></div>
+                            </div>
+                        </li>
+                        <li class="waffar-row">
+                            <div class="waffar-tag">
+                            </div>
+                        </li>
+                        <li data-track='' data-unit-id="1163900570"
+                            data-item-title="Abu Kass Indian Mazza Basmati Rice - 2 kg" data-seller_name="SouqEgypt"
+                            data-ean="2725235353933" data-price="89.95" data-connections=""
+                            data-available_quantity="610" data-brand="abu kass" data-subcategory="cereals &amp; grains">
+
+                            <button class="green-button sk-bg-clr2 sk-bg-clr2-eff button block expand" (click)="addToCart(item.id)" data-addtocart=''
+                                data-ajaxcart-btn data-track-target="" data-track-name="ajaxAddToCart"
+                                data-track-event="event22">
+                                Add to cart
+                                &nbsp;<i class="inline fi-qty-cart"></i>
+                            </button>
+
+                            <div class="ajaxCart fmcg-quanitiy hide" data-ajaxcart="" data-unit-id="1163900570"
+                                data-item-img="https://cf5.s3.souqcdn.com/item/2020/02/04/94/88/81/85/item_L_94888185_8a4bcbb932141.jpg"
+                                data-item-title="Abu Kass Indian Mazza Basmati Rice - 2 kg">
+                                <button class="white button block column small-3" data-ajaxcart-qty="minus"
+                                    data-track-target="" data-track-name="ajaxAddToCart" data-track-event="event61">
+                                    <i class="inline fi-minus medium"></i>
+                                </button>
+                                <input id="quantity" class="quantityValue1163900570 column small-6" disabled="disabled"
+                                    value="0" />
+                                <button class="white button block column small-3" data-ajaxcart-qty="plus"
+                                    data-track-target="" data-track-name="ajaxAddToCart" data-track-event="event60">
+                                    <i class="inline fi-plus medium"></i>
+                                </button>
+                            </div>
+                            <small class="error-note hide" data-ajaxcart-error></small>
+                        </li>
+                    </ul>
+                    <!-- </div> -->
+                </div>
+
+            </div>
+        </div>
+
+    </div>

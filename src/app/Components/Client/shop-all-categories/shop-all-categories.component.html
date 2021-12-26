@@ -1,0 +1,13 @@
+<div class="categories">
+<p class="b">Shop All Categories </p>
+<div class="column" *ngFor="let category of allCaregories" >
+    <span class="span">{{category.name}}</span>
+    <div *ngFor="let sub of category.SubCategories">
+        
+      <a>  +{{sub.name}}</a>
+    </div>
+<div >
+
+</div>
+</div>
+</div>

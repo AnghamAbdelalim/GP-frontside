@@ -1,0 +1,55 @@
+<div class="cart" >
+<div>
+    <h2>Shopping Cart({{numOfItems}})</h2>
+    <div *ngFor="let product of itemCart" class="main" >
+        <div class="col">
+            <img [src]=createImgPath(product.image) style="width:100px;height:155px;margin-bottom: 10px;">
+        </div>
+        <div class="col">
+            <span>{{product.description}}</span><br>
+            <span style="font-weight: bold; font-size: 20px;color: rgb(26, 26, 235);">{{calcPriceAfterDiscount(product.price,product.discount)}} &nbsp; EGP</span>
+            <br><span>Eligible for <b>Free Shipping</b></span>
+            <br>
+            <span>Sold By:&nbsp;&nbsp;&nbsp;Souq</span>
+        </div>
+        <div class="col">
+            <span>Qty</span>
+            &nbsp;&nbsp;
+            <!--<selec (change)="selectOption($event.target.value)"
+            [(ngModel)]="selected">
+               <option  [value]="num" *ngFor="let num of quantities">
+                   {{num}}
+               </option>
+           </select>-->
+           <button type="button" class="btn" style="background-color: rgb(216, 214, 214);border-radius: 80%;"  (click)="decreaseQuantity(product.id)" >
+            <i class="fi-minus" style="color:rgb(79, 130, 224);font-weight: bold;font-size: 20px;font-weight: 15px;" ></i>
+           
+            </button>
+            &nbsp;&nbsp;
+            <span style="font-size: 30px;">
+                {{qty}}
+            </span>
+            &nbsp;&nbsp;
+            <button type="button" class="btn" style="background-color: rgb(216, 214, 214);border-radius: 80%;"  (click)="incrementQuantity(product.id)">
+            <i class="fi-plus" style="color:rgb(79, 130, 224);font-weight: bold;font-size: 20px;font-weight: 15px;" ></i>
+            </button>
+        </div>
+        <br>
+    <hr class="hr">
+    <div style="margin-bottom: 4px;"><a (click)="addProductToWishlist(product.id)" >
+        <i class='fi-heart' style="color:dodgerblue;font-size: 15px;">Save as Later</i>
+    </a>&nbsp;|&nbsp;
+    <a (click)="deleteFormCart(product.id)">Delete</a></div>
+    </div>
+</div>
+<div>
+    <div style="margin-top: 5px; background-color: wheat;width: 280px;height: 100px;margin-left: 120px;">
+<span style="padding: 6px;">Total:</span><br>
+<span style="font-weight: bold;font-size: 22px;margin-left: 7px;">{{Total}}EGP</span>
+<hr style="width:280px;margin-bottom:20px">
+    </div>
+  
+    <button class="button"(click)="Savecartdata()" routerLink="/BillingAddress">PROCEED TO CHECKOUT</button>
+    
+    </div>
+</div>

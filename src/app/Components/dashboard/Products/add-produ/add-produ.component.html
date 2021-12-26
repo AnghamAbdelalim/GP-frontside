@@ -1,0 +1,110 @@
+<button class="button" (click)="show()">Add New Product</button>
+<div class="content" style="height: 80%;">
+    <table id="customers">
+        <tr>
+          <th>
+Name
+          </th>
+          <th>
+Price
+          </th>
+          <th>
+   image
+          </th>
+          <th>
+        Quantity
+          </th>
+         
+          <th>
+Sub Category
+          </th>
+          <th>
+              discount
+          </th>
+          <th>
+           ModelName
+          </th>
+          <th colspan="2">Modify products</th>
+        </tr>
+        <tr *ngFor="let product of allProducts">
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td><img width="100px" [src]="createImgPath(product.image)"></td>
+            <td>{{product.quantity}}</td>
+       
+            <td>{{product.subCatgoryName}}</td>
+            <td>{{product.discount}}</td>
+            <td>{{product.modelName}}</td>
+            <td><button class="button"  (click)="delete(product.id)">Delete</button></td>
+            <td><button class="button" (click)="update(product.id)">update</button></td>
+        </tr>
+    </table>
+    <a routerLink="/dashboard" >Back</a>
+</div>
+   
+<!-- The Modal -->
+<div id="myModal" class="modal" *ngIf="flag">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close"  (click)="close()">&times;</span>
+        <h2> {{action}} product</h2>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="productform">
+            <label for="fname">Product Name</label>
+            <input type="text" formControlName="name" id="fname" name="firstname" >
+        
+            <label for="quantity">Quantity</label>
+            <input type="text" formControlName="quantity" id="lname" name="lastname">
+            <label for="lname">Price</label>
+            <input type="text" id="lname" formControlName="price" name="lastname" >
+            <label for="lname">Discount</label>
+            <input type="text" id="lname" formControlName="discount" name="lastname" >
+            <label >Desciption</label>
+            <textarea formControlName="description">
+
+            </textarea>
+            <label > Product Category</label>
+            <select formControlName="category" #mySelectt (change)='onCategorySelected(mySelectt.value)'>
+            <option *ngFor="let category of allCategories" value={{category.id}}>
+                 {{category.name}}  
+            </option>
+            </select>
+            <label > Product SubCategory</label>
+            <select formControlName="subcategory">
+<option *ngFor="let subcategory of allsubcategories" value={{subcategory.id}}> 
+{{subcategory.name}}
+</option>
+            </select>
+            <label > Product Brand</label>
+            <select formControlName="brand" #mySelect (change)='onBrandSelected(mySelect.value)'>
+                <option *ngFor="let brand of allbrands" value={{brand.id}}>
+                    {{brand.name}}  
+               </option>
+            </select>
+            <label > Product Model</label>
+            <select formControlName="model" >
+<option *ngFor="let model of allModel" value={{model.id}}>{{model.name}}</option>
+            </select>
+      
+            <label for="lname">Image</label>
+            <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+          
+            <button (click)="add()" class="button">{{action}} Product</button>
+          </form> 
+      </div>
+      <div class="modal-footer">
+       
+      </div>
+    </div>
+  
+  </div>
+
+  
+
+  
+  
+  
+

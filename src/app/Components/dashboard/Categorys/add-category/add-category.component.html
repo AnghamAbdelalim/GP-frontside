@@ -1,0 +1,44 @@
+<div class="card" style="margin: auto;width:50%;margin-top:2px;height: 80%;">
+    <div class="card-header" style="text-align:center">
+        <b>ADD NEW CATEGORY</b>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="addCategoryForm" (ngSubmit)="addCategory(addCategoryForm.value)">
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label style="font-weight: bold;font-size: 20px;">Category Name :</label>
+                    <input type="text" formControlName="name" [class.is-invalid]="name!.invalid && name!.touched"
+                        placeholder="Enter Category Name..." class="form-control">
+                    <div *ngIf="name!.errors && name!.touched">
+                        <small class="text-danger" *ngIf="name!.errors!.required">CategoryName is required</small>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label style="font-weight: bold;font-size: 20px;">Category Description :</label>
+                    <input type="text" formControlName="description"
+                        [class.is-invalid]="description!.invalid && description!.touched"
+                        placeholder="Enter Category Name..." class="form-control">
+                    <div *ngIf="description!.errors && description!.touched">
+                        <small class="text-danger" *ngIf="description!.errors!.required">Description is required</small>
+                    </div>
+                </div>
+                <div>
+                    <label>Discount</label>
+                    <input type="number" formControlName="discount">
+                </div>
+                <div>
+                    <label >Image</label>
+                    <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+                </div>
+                <div class=" col-sm-6"><br>
+                    <button type="submit" class="button">Add Category</button>
+                </div>
+            </div>
+        </form>
+    </div><br><br><br><br>
+    <div class="card-footer">
+
+
+    </div>
+
+</div>

@@ -1,0 +1,55 @@
+<div class="content" style="height: 80%;">
+<button class="button" (click)="show()">Add SubCategory</button>
+<table id="customers">
+    <tr>
+    <th>SubCategoy Name</th>
+    <th>SubCategoy description</th>
+    <th>SubCategoy Image</th>
+    <th>Category Type</th>
+    <th colspan="2">Modification</th>
+</tr>
+<tr *ngFor="let sub of allSubCategories">
+<td>{{sub.name}}</td>
+<td>{{sub.description}}</td>
+<td><img img width="100px" [src]="createImgPath(sub.image)"></td>
+<td>{{sub.catogeryId}}</td>
+
+<td class="button"><button (click)="delete(sub.id)">Delete</button></td>
+<td class="button"><button (click)="update(sub.id)">update</button></td>
+</tr>
+</table>
+</div>
+<div id="myModal" class="modal" *ngIf="flag">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close"  (click)="close()">&times;</span>
+        <h2>{{action}} SubCategory</h2>
+      </div>
+      <div class="modal-body">
+          <form [formGroup]="subCategoryForm">
+              <label for="fname">SubCategory Name</label>
+              <input type="text" formControlName="name" >
+              <label for="fname">SubCategory Description</label>
+              <textarea formControlName="description" ></textarea>
+              <label >Image</label>
+              <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+              <label for="fname">Select Category</label>
+              <select formControlName="category" >
+                  <option selected>Select Category</option>
+                  <option  *ngFor="let category of allCategories" value={{category.id}}>
+                      {{category.name}}
+                  </option>
+              </select>
+              
+              <button class="button" (click)="add()">{{action}} SubCategory</button>
+              
+            </form>
+      </div>
+      <div class="modal-footer">
+        <h3>{{action}} SubCategory</h3>
+      </div>
+    </div>
+  
+  </div>

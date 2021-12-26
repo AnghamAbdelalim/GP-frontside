@@ -1,0 +1,17 @@
+<!--   <app-header></app-header>
+ <app-dashboard></app-dashboard>  
+  <app-home></app-home>   
+  <app-quick-view></app-quick-view>  -->
+<!-- <router-outlet></router-outlet> 
+<app-footer></app-footer> -->
+ 
+
+ 
+ 
+
+  <app-header *ngIf="showHead"></app-header>
+
+<!-- <app-home *ngIf="showHead"></app-home>  -->
+<app-homebody  *ngIf="!isUserAdmin()&&showHead"></app-homebody>
+<router-outlet></router-outlet>
+<app-footer *ngIf="showHead"></app-footer> 

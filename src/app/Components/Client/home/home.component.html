@@ -1,0 +1,35 @@
+
+ 
+<div>
+ <div class="rowpic" >
+    <img [src]="src" style="width: 100%;height: 300px;">
+      </div>  
+    
+    
+    
+    
+    
+    
+      <div style="width: 100%;height: 400px;background-color: white;margin-top: 30px;margin-bottom: 60px;" *ngFor="let cat of fewCategories" >
+        <span style="margin-top: 12px;font-weight: bold;margin-left: 20px;">{{cat.name}}</span><br>
+    <div style="float: left;width: 30%;text-align: center;height: 250px;background-color:violet;margin-top: 50px;padding: 100px;font-size: 30px;height: 350px;">Shop {{cat.name}}<br> UP TO 30% DISCOUNT</div>
+    <div *ngFor="let sub of cat.SubCategories">
+      <div style="width: 360px;float: left;">  <img style="width: 170px;height: 200px;margin-left: 30px;" [src]="createImgPath(sub.image)"></div>
+    </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div *ngFor="let product of newArrivals" style="float: left;position: relative;;width: 170px;height: 360px;margin-top: 50px;background-color: rgb(255, 255, 255);margin-left: 20px;">
+        <img [src]="createImgPath(product.image)" style="margin-top: 5px;width: 150px;margin: auto;">
+        <span>{{product.description}}</span><br>
+        <div style="margin-bottom: 9px;color:rgb(26, 128, 211);font-weight: bold;font-size: 16px;position: absolute;top:250px">{{product.price}}EGP</div>
+        
+    </div>
+</div>

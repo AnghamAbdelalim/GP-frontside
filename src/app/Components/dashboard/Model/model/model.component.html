@@ -1,0 +1,51 @@
+
+<div class="content" style="height: 80%;">
+<button class="button" (click)="show()">Add Model</button>
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Model Name</th>
+            <th>Model Brand</th>
+            <th colspan="2">delete/update</th>
+        </tr>
+    </thead>
+    <tbody>
+       <tr *ngFor="let model of allModels">
+           <td>{{model.name}}</td>
+           <td>{{model.brandName}}</td>
+           <td><button class="button" (click)="delete(model.id)">Delete</button></td>
+           <td><button class="button" (click)="update(model.id)">update</button></td>
+       </tr>
+    </tbody>
+</table>
+<a routerLink="/dashboard"  style="margin-left: 15px;">Back</a>
+<!-- The Modal -->
+<div id="myModal" class="modal" *ngIf="flag">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close"  (click)="close()">&times;</span>
+      <h2>{{action}} Model</h2>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="modelForm">
+            <label for="fname">Model Name</label>
+            <input type="text" formControlName="name" placeholder="Model name..">
+            <label for="fname">Brand Name</label>
+            <select formControlName="brand" >
+                <option selected>Select Brand</option>
+                <option  *ngFor="let brand of allBrands" value={{brand.id}}>
+                    {{brand.name}}
+                </option>
+            </select>
+            
+            <button class="button" (click)="addOrUpdate()">{{action}} Model</button>
+          </form>
+    </div>
+    <div class="modal-footer">
+      <h3>{{action}} Model</h3>
+    </div>
+  </div>
+</div>
+</div>

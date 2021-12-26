@@ -1,0 +1,49 @@
+.column-img
+{
+    width: 25%;
+    float: left;
+    margin-bottom:27px ;
+    position: relative;
+   // position: relative;
+}
+.column-img:hover .subCategoryName
+{
+  visibility: visible;
+  opacity: 1;
+}
+.subCategoryName
+{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(29, 106, 154, 0.72);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  font-size: 20px;
+
+  /* transition effect. not necessary */
+  transition: opacity .2s, visibility .2s;
+}
+.subcategories
+{
+    margin-top: 1px;
+    background-color: white;
+
+}
+.rowpic
+{
+  //  margin-top: 0px;
+  //  height: 200px;
+    width: 100%;
+    margin-top: 0px;
+ margin-bottom: 50px;
+  //  background-color: black;
+}
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 90%;
+  }}

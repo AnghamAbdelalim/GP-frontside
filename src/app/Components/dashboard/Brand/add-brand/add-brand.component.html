@@ -1,0 +1,27 @@
+<div class="content" style="height: 80%; width: 50%;margin-top: 15px;">
+<table style="width: 100%;">
+    <tr>
+        <th>Brand Name</th>
+        <th colspan="2">Modifcation</th>
+    </tr>
+    <tr *ngFor="let brand of allbrands"> 
+<td>{{brand.name}}</td>
+<td><button class="button">update</button></td>
+<td><button class="button" (click)="Delete(brand.id)">Delete</button></td>
+<td></td>
+    </tr>
+</table>
+
+
+<button class="open-button" (click)="openForm()">Add Brand</button>&nbsp;&nbsp;&nbsp;
+<a routerLink="/dashboard" >Back</a>
+<div class="form-popup" id="myForm">
+  <form  class="form-container" *ngIf="flag" [formGroup]="BrandForm">
+    <label for="name"><b>Brand Name</b></label>
+    <input type="text" formControlName="name" required>
+
+    <button (click)="add()" class="btn">Add</button>
+    <button type="button" class="btn cancel" (click)="closeForm()">Close</button>
+  </form>
+</div>
+</div>
